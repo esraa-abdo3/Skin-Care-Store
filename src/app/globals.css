@@ -1,0 +1,171 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.Hero-section{
+    background-image: url(/herosection.jpg);
+    height: 90vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.Hero-section .text{
+    position: absolute;
+    left: 10%;
+    top: 60%;
+    transform: translateY(-60%);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    -webkit-transform: translateY(-60%);
+    -moz-transform: translateY(-60%);
+    -ms-transform: translateY(-60%);
+    -o-transform: translateY(-60%);
+    width: 42%;
+}
+.Hero-section .text h2{
+    text-transform:uppercase;
+    color: white;
+    font-weight:700;
+    font-size: 40px;
+}
+.Hero-section .text p{
+    color: white;
+    text-transform: capitalize;
+}
+.Hero-section .text button{
+    background-color: #a10e30;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    width: fit-content;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: white;
+    text-transform: capitalize;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.Hero-section .text button:hover{
+    transform: scale(.98);
+    -webkit-transform: scale(.98);
+    -moz-transform: scale(.98);
+    -ms-transform: scale(.98);
+    -o-transform: scale(.98);
+}
+.Bestseller{
+    padding: 70px 0;
+}
+.Bestseller header p{
+    text-transform: capitalize;
+    color: #a10e30;
+    border-bottom: 2px solid #a10e30;
+}
+.Bestseller .container{
+    width: 80%;
+    margin: 0 auto;
+}
+.Bestseller h2{
+    font-weight: bolder;
+    color: #a10e30;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.Bestseller .products {
+    display: flex;
+
+    gap: 60px;
+    padding: 20px 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge القديم */
+}
+@media(max-width:767px){
+    .Bestseller .products{
+         justify-content: start;
+
+    }
+}
+.Bestseller .products .product{
+      width: 250px;
+    flex-shrink: 0;
+     scroll-snap-align: start;
+}
+.Bestseller .products .product .Image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+}
+.Bestseller .products .product .Image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+.Bestseller .products .product .Image:hover img {
+    transform: scale(1.08);
+}
+.Bestseller .products .product .Image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    transition: 0.3s;
+}
+.Bestseller .products .product .Image:hover::after {
+    background: rgba(0,0,0,0.1);
+}
+.Bestseller .products .product .text h4 {
+    color: #a10e30;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.Bestseller .products .product .text p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.Bestseller .products .product button {
+    width: 100%;
+    border: 2px solid #a10e30;
+    color: #a10e30;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 15px;
+    background: transparent;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.Bestseller .products .product button:hover {
+    background: #a10e30;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f8ed;
+}

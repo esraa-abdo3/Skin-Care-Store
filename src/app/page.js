@@ -1,66 +1,81 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+import FAQ from "./componets/FAQ/FAQ";
+import "./globals.css"
+async function getProducts() {
+  const res = await fetch("https://cosmetics-sable.vercel.app/api/v1/products", {
+    cache: "no-store", 
+  });
+    if (!res.ok) {
+      console.log(res)
+    throw new Error("Failed to fetch products");
+  }
+ const result= await res.json();
+  return result.data
+}
+
+export default async function Home() {
+  const products = await getProducts();
+  console.log(products)
+  const productsCards = products.slice(0, 4).map((product) => {
+    return (
+      <div key={product._id} className="product">
+        <div className="Image">
+          <img src={product.images[0]} alt={product.name} />
+        </div>
+
+        <div className="text">
+          <h4>{product.name}</h4>
+          <p>{product.description}</p>
+          <p style={{ fontSize: "19px", fontWeight: "bolder" }}>price : {product.price} Egp</p>
+        </div>
+
+        <div className="action">
+          {product.stock === 0 ? (
+            <button>Out of stock</button>
+          ) : (
+            <button>Add to cart</button>
+          )}
+        </div>
+      </div>
+    );
+  });
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
+    <>
+      <div className="Hero-section">
+        <div className="text">
+          <h2>
+            you don't need more skincere products.
+            <br />
+            just better onees
+          </h2>
+
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            Discover a smarter way to care for your skin with carefully selected
+            formulas that actually work.
+            Glow naturally, simplify your routine, and choose products made for
+            real results—not just promises.
           </p>
+
+          <button>explore now</button>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      <div className="Bestseller">
+        <div className="container">
+          <header style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+<h2>TOMYSKIN best seller</h2>
+          <p> shop all</p>
+          </header>
+          
+
+          <div className="products">
+            {productsCards}
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </div>
+      <FAQ/>
+
+  
+    </>
+  )
 }
