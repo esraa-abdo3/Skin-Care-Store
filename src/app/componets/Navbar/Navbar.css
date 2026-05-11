@@ -84,8 +84,21 @@ width: 95%;
 .icons a {
   color: white;
   transition: 0.3s;
+  position: relative;
 }
-
+.icons a p{
+background-color: red;
+    position: absolute;
+    margin: 0;
+    right: -70%;
+    top: -63%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    line-height: 20px;
+}
 .icons a:hover {
   color: #a10e30
 }

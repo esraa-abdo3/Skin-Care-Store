@@ -3,10 +3,12 @@ import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { useState } from "react";
 import "./Navbar.css"
 import Link from "next/link";
+import { useWishlist } from "@/app/Context/WishlistContext";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-    const[active, setactive]=useState("home")
+    const [active, setactive] = useState("home")
+    const { wishlist }=useWishlist();
 
     return (
         <>
@@ -46,7 +48,10 @@ export default function Navbar() {
 
 
                     <div className="icons">
-                        <Link href={"/wishlist"} className="wishlist"><FaHeart /></Link>
+                        <Link href={"/Wishlist"} className="wishlist">
+                            <FaHeart />
+                            <p>{ wishlist.length}</p>
+                        </Link>
                         <Link href={"/cart"}><FaShoppingCart /></Link>
                         <Link href={"/login"}><FaUser /></Link>
                     </div>

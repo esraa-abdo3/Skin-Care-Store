@@ -1,0 +1,41 @@
+.Wishlist{
+    padding: 50px 0;
+}
+.Wishlist{
+    width: 85%;
+    margin: 0 auto;
+}
+.Wishlist .cards .card{
+    padding: 25px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #a10e307a;
+    border-right: none;
+    border-left: none;
+}
+.Wishlist header h1{
+    color: #a10e30;
+    font-size: bold;
+    text-transform: capitalize;
+}
+
+
+.Wishlist button{
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.Wishlist .card p{
+   
+}
+.Wishlist button:hover{
+    transform: scale(.98);
+    -webkit-transform: scale(.98);
+    -moz-transform: scale(.98);
+    -ms-transform: scale(.98);
+    -o-transform: scale(.98);
+}
